@@ -1,0 +1,12 @@
+services:
+  db:
+    image: 'postgres:16-alpine'
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+      POSTGRES_DB: 'cohorta_db'
+    ports:
+      - '5433:5432'
+    volumes:
+      - ./data/:/var/lib/postgresql/data
+      - ./sql/init_schema.sql:/docker-entrypoint-initdb.d/init_schema.sql
