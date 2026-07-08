@@ -1,0 +1,81 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.23.13",
+    "script_metadata_hash": null
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "d5a92caa9f134537bfb494bcfbdb2c45",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "KAkq",
+      "code_hash": "2f2fcef867bec1b4d5dc00b2e6c56119",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ptzt",
+      "code_hash": "5d7b44c7706e3018449b9ed9e3bf5522",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "rHfN",
+      "code_hash": "a501e524fc4e194da012d916d34c544a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PiAM",
+      "code_hash": "87c62f29036b5b939449f09edd3035de",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "connection to server at \"localhost\" (::1), port 5433 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?\nconnection to server at \"localhost\" (127.0.0.1), port 5433 failed: Connection refused\n\tIs the server running on that host and accepting TCP/IP connections?",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">&quot;/tmp/marimo_92272/__marimo__cell_PiAM_.py&quot;</span>, line <span class=\"m\">4</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">conn</span> <span class=\"o\">=</span> <span class=\"n\">psycopg2</span><span class=\"o\">.</span><span class=\"n\">connect</span><span class=\"p\">(</span><span class=\"s2\">&quot;postgresql://postgres:postgres@localhost:5433/cohorta_db&quot;</span><span class=\"p\">)</span>\n  File <span class=\"nb\">&quot;/home/leshasid/Documents/Programming/Python/projects/cohorta/.venv/lib/python3.13/site-packages/psycopg2/__init__.py&quot;</span>, line <span class=\"m\">122</span>, in <span class=\"n\">connect</span>\n<span class=\"w\">    </span><span class=\"n\">conn</span> <span class=\"o\">=</span> <span class=\"n\">_connect</span><span class=\"p\">(</span><span class=\"n\">dsn</span><span class=\"p\">,</span> <span class=\"n\">connection_factory</span><span class=\"o\">=</span><span class=\"n\">connection_factory</span><span class=\"p\">,</span> <span class=\"o\">**</span><span class=\"n\">kwasync</span><span class=\"p\">)</span>\n<span class=\"gr\">psycopg2.OperationalError</span>: <span class=\"n\">connection to server at &quot;localhost&quot; (::1), port 5433 failed: Connection refused</span>\n<span class=\"x\">\tIs the server running on that host and accepting TCP/IP connections?</span>\n<span class=\"x\">connection to server at &quot;localhost&quot; (127.0.0.1), port 5433 failed: Connection refused</span>\n<span class=\"x\">\tIs the server running on that host and accepting TCP/IP connections?</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    }
+  ]
+}

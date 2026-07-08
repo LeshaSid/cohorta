@@ -88,8 +88,10 @@ def generate_data():
                 match group:
                     case "B":
                         p = 0.22
+                        sale = 0.85
                     case _:
                         p = 0.15
+                        sale = 1
                 
                 if random.random() < p:
                     timestamp_event += timedelta(minutes=random.randint(1, 15))
@@ -101,7 +103,7 @@ def generate_data():
                     "device_type": device_type,
                     "traffic_source": traffic_source,
                     "properties": {
-                        "revenue" : random.randint(500, 5000),
+                        "revenue" : random.randint(500, 5000) * sale,
                         "category" : random.choice(["electronics", "health & beauty", "home & garden", "apparel & accessories", "groceries", "toys, hobbies & diy"])
                     }
                 })
