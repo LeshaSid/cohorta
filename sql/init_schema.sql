@@ -11,7 +11,7 @@ CREATE TABLE events (
 
 CREATE INDEX idx_events_event_name_timestamp_event ON events(event_name, timestamp_event);
 CREATE INDEX idx_events_user_id ON events(user_id);
-CREATE INDEX idx_events_properties ON events(properties) USING GIN;
+CREATE INDEX idx_events_properties ON events USING GIN (properties);
 
 CREATE TABLE ab_exposures (
     user_id bigint,

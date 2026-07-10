@@ -14,11 +14,7 @@ cohort_interval AS (
     ON a.user_id = c.user_id
 )
 
-SELECT cohort_date,
-COUNT(DISTINCT CASE WHEN period_number = 0 THEN user_id END) AS cohort_size,
-COUNT(DISTINCT CASE WHEN period_number = 1 THEN user_id END) AS day_1,
-COUNT(DISTINCT CASE WHEN period_number = 2 THEN user_id END) AS day_2,
-COUNT(DISTINCT CASE WHEN period_number = 7 THEN user_id END) AS day_7
+SELECT cohort_date, period_number, COUNT(DISTINCT user_id) AS user_count
 FROM cohort_interval
-GROUP BY cohort_date
-ORDER BY cohort_date
+GROUP BY cohort_date, period_number
+ORDER BY cohort_date, period_number

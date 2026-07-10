@@ -21,7 +21,7 @@ def count_of_users_per_day(current_datetime):
         k = 1.1
     else:
         k = 1.3
-    return base * k
+    return round(base * k)
 
 def generate_data():
     all_events = []
@@ -138,6 +138,7 @@ def save_to_db(events, ab_exposures):
         extras.execute_batch(cursor, query_ab, ab_exposures, page_size=10000)
         conn.commit()
     except Exception as e:
+        print(f"Ошибка при вставке: {e}")
         conn.rollback()
     finally:
         cursor.close()
