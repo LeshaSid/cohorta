@@ -30,7 +30,9 @@ def _(pd, plt, psycopg2, sns):
     pivot_df = df_with_size.pivot(index="cohort_date", columns="period_number", values="retention")
     plt.figure(figsize=(12, 8))
     sns.heatmap(pivot_df, annot=True, fmt=".1f", cmap="Blues")
-    plt.title("Retention by Cohorts")
+    plt.title("Удержание по когортам")
+    plt.ylabel("Дата когорты")
+    plt.xlabel("Период когорты")
     plt.show()
     return
 

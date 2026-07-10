@@ -1,6 +1,7 @@
 services:
   db:
     image: 'postgres:16-alpine'
+    container_name: cohorta_db
     environment:
       POSTGRES_USER: 'postgres'
       POSTGRES_PASSWORD: 'postgres'
@@ -10,3 +11,29 @@ services:
     volumes:
       - ./data/:/var/lib/postgresql/data
       - ./sql/init_schema.sql:/docker-entrypoint-initdb.d/init_schema.sql
+    networks:
+      - cohorta_network
+
+  superset:
+    image: apache/superset:latest
+    container_name: cohorta_superset
+    ports:
+      - "8088:8088"
+    environment:
+      - SUPERSET_SECRET_KEY=your-secret-key-change-me
+    depends_on:
+      - db
+    networks:
+      - cohorta_network
+    command: >
+      sh -c "
+        pip install --target /app/.venv/lib/python3.10/site-packages psycopg2-binary &&
+        superset fab create-admin --username admin --firstname Admin --lastname User --email admin@example.com --password admin &&
+        superset db upgrade &&
+        superset init &&
+        exec superset run -p 8088 --host=0.0.0.0 --with-threads
+      "
+
+networks:
+  cohorta_network:
+    driver: bridge

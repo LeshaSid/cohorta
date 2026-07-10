@@ -13,11 +13,11 @@ def _():
     import matplotlib.pyplot as plt
     import numpy as np
 
-    return pd, psycopg2
+    return pd, plt, psycopg2, sns
 
 
 @app.cell
-def _(pd, psycopg2):
+def _(pd, plt, psycopg2, sns):
     with open("sql/ltv.sql", "r", encoding="utf-8") as f:
         query = f.read()
 
@@ -29,6 +29,15 @@ def _(pd, psycopg2):
     df_with_size = df.merge(cohort_sizes, on="cohort_date", how="left")
     df_with_size["cumulative_revenue"] = df_with_size.groupby('cohort_date')['revenue_sum'].cumsum()
     df_with_size["ltv"] = df_with_size["cumulative_revenue"] / df_with_size["cohort_size"]
+
+    top_cohorts = df_with_size['cohort_date'].unique()[0:10]
+    df_plot = df_with_size[df_with_size['cohort_date'].isin(top_cohorts)]
+    plt.figure(figsize=(8, 5))
+    sns.lineplot(data=df_plot, x="period_number", y="ltv", hue="cohort_date")
+    plt.title("Кривые LTV по когортам")
+    plt.xlabel("Дни жизни(period_number)")
+    plt.ylabel("LTV(накопленная выручка на пользователя)")
+    plt.show()
     return
 
 

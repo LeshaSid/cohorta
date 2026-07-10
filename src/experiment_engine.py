@@ -168,6 +168,7 @@ def _(aov_A, aov_B, conversions, df, errors, groups, pd, plt, sb):
     plt.bar(x=groups, height=conversions, yerr=errors, capsize=5, width=0.4)
     plt.xlabel("group")
     plt.ylabel("conversion")
+    plt.title("Conversion")
     plt.show()
     return
 
