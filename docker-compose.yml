@@ -21,17 +21,21 @@ services:
       - "8088:8088"
     environment:
       - SUPERSET_SECRET_KEY=your-secret-key-change-me
+      - SUPERSET__SQLALCHEMY_DATABASE_URI=postgresql://postgres:postgres@db:5432/superset_meta
     depends_on:
-      - db
+      db:
+        condition: service_started
     networks:
       - cohorta_network
+    user: "root"
     command: >
       sh -c "
-        pip install --target /app/.venv/lib/python3.10/site-packages psycopg2-binary &&
-        superset fab create-admin --username admin --firstname Admin --lastname User --email admin@example.com --password admin &&
-        superset db upgrade &&
-        superset init &&
-        exec superset run -p 8088 --host=0.0.0.0 --with-threads
+        pip install psycopg2-binary &&
+        cp -r /usr/local/lib/python3.10/site-packages/psycopg2* /app/.venv/lib/python3.10/site-packages/ &&
+        superset fab create-admin --username admin --firstname admin --lastname User --email admin@example.com --password admin || true &&
+        superset db upgrade || true &&
+        superset init || true &&
+        superset run -p 8088 --host=0.0.0.0 --with-threads
       "
 
 networks:

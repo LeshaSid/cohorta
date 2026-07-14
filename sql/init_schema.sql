@@ -20,3 +20,5 @@ CREATE TABLE ab_exposures (
     group_ab CHAR(1),
     PRIMARY KEY (user_id,experiment_name)
 );
+
+CREATE DATABASE superset_meta WITH OWNER postgres;
