@@ -33,7 +33,7 @@
         {
           "type": "stream",
           "name": "stderr",
-          "text": "/tmp/marimo_6852/__marimo__cell_MJUe_.py:5: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.\n  df = pd.read_sql_query(query, conn)\n",
+          "text": "/tmp/marimo_14692/__marimo__cell_MJUe_.py:5: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.\n  df = pd.read_sql_query(query, conn)\n",
           "mimetype": "text/plain"
         },
         {
