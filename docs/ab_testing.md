@@ -134,8 +134,8 @@ plt.title("Conversion")
 plt.show()
 ```
 
-!(Revenue and AOV)[../images/revenue_aov.png]
+![Revenue and AOV](../images/revenue_aov.png)
 
-!(Conversion)[../images/conversion.png]
+![Conversion](../images/conversion.png)
 
-!(Result)[../images/ab_test_result.png]
+![Result](../images/ab_test_result.png)

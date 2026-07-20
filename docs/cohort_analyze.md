@@ -29,4 +29,4 @@ plt.xlabel("Период когорты")
 plt.show()
 ```
 
-!(Удержане по когортам)[../images/cohorts.png]
+![Удержане по когортам](../images/cohorts.png)
